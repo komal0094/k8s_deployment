@@ -10,8 +10,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: install aws cli
         run: | 
-          apt install awscli -y
-      # - name: Set up Docker Buildx
+          sudo apt update && apt install awscli -y
+      # - name: Set tup Docker Buildx
       #   uses: docker/setup-buildx-action@v2
     
       - name: Login to Docker Hub
