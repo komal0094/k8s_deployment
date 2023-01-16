@@ -30,5 +30,12 @@ jobs:
         with:
           push: true
           tags: komal0094/docker-test:${{steps.tag001.outputs.tag}}
-
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+      - name: configure eks-cluster
+        run: aws eks update-kubeconfig  --name gg_eks_cluster    
           
